@@ -13,7 +13,7 @@ import { DoctorSpecialty } from './DoctorSpecialty';
 @Entity()
 export class Specialty extends BaseEntity {
   @PrimaryGeneratedColumn()
-  public id: string;
+  public id: number;
 
   @Column({ nullable: false })
   public name: string;

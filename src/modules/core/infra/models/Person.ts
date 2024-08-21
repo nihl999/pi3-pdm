@@ -40,7 +40,7 @@ export class Person extends BaseEntity {
   public dependents: Person[];
 
   @OneToMany(() => PersonPlan, (personPlan) => personPlan.person)
-  public personPlan: PersonPlan[];
+  public plans: PersonPlan[];
 
   @OneToMany(() => Appointment, (appointment) => appointment.person)
   public appointments: Appointment[];

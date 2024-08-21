@@ -1,8 +1,7 @@
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import 'dotenv/config';
-import { DataSource } from 'typeorm';
+import { DataSource, DataSourceOptions } from 'typeorm';
 
-export const DatabaseConfiguration: TypeOrmModuleOptions = {
+export const DatabaseConfiguration: DataSourceOptions = {
   type: 'postgres',
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
@@ -12,7 +11,7 @@ export const DatabaseConfiguration: TypeOrmModuleOptions = {
   schema: 'public',
   dropSchema: false,
   cache: false,
-  migrations: ['dist/modules/shared/infra/migration/**/*.{js,ts}'],
+  migrations: ['dist/modules/shared/infra/migrations/*.{js,ts}'],
   entities: ['dist/modules/**/infra/models/*.{js,ts}'],
   synchronize: false,
 };

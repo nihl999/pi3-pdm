@@ -12,8 +12,8 @@ import { PersonPlan } from './PersonPlan';
 
 @Entity()
 export class Plan extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  public id: string;
+  @PrimaryGeneratedColumn({ type: 'integer' })
+  public id: number;
 
   @Column({ nullable: false })
   public name: string;

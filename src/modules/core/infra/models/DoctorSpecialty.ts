@@ -14,7 +14,7 @@ import { Doctor } from './Doctor';
 import { Specialty } from './Specialty';
 
 @Entity()
-@Index('specialty_doctor_uq', ['plan', 'doctor'], { unique: true })
+@Index('specialty_doctor_uq', ['specialty', 'doctor'], { unique: true })
 export class DoctorSpecialty extends BaseEntity {
   @PrimaryGeneratedColumn()
   public id: string;

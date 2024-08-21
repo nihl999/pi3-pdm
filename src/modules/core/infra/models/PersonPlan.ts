@@ -26,7 +26,7 @@ export class PersonPlan extends BaseEntity {
   @ManyToOne(() => Plan, (plan) => plan.planUsers)
   public plan: Plan;
 
-  @ManyToOne(() => Person, (person) => person.personPlan)
+  @ManyToOne(() => Person, (person) => person.plans)
   public person: Person;
 
   @CreateDateColumn()
