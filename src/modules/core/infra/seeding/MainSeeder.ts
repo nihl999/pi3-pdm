@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { DataSource } from 'typeorm';
 import { Seeder, SeederFactoryManager } from 'typeorm-extension';
 import { Doctor } from '../models/Doctor';
-import { Person } from '../models/Person';
+import { PersonModel } from '../models/Person';
 import { PersonPlan } from '../models/PersonPlan';
 import { Plan } from '../models/Plan';
 import { DoctorPlan } from '../models/DoctorPlan';
@@ -31,7 +31,7 @@ export class MainSeeder implements Seeder {
       { name: 'Otorrinolaringologista', id: 3 },
     ]);
 
-    const personFactory = factoryManager.get(Person);
+    const personFactory = factoryManager.get(PersonModel);
     const doctorFactory = factoryManager.get(Doctor);
 
     console.log('seeding Persons...');
@@ -94,7 +94,7 @@ export class MainSeeder implements Seeder {
       }),
     );
 
-    await Person.save(pacients);
+    await PersonModel.save(pacients);
     await Doctor.save(doctors);
   }
 }

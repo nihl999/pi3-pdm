@@ -1,11 +1,11 @@
 import { Faker } from '@faker-js/faker';
 import { setSeederFactory } from 'typeorm-extension';
-import { Person } from '../models/Person';
+import { PersonModel } from '../models/Person';
 
-export const PersonFactory = setSeederFactory(Person, create);
+export const PersonFactory = setSeederFactory(PersonModel, create);
 
-function create(faker: Faker): Person {
-  const person = new Person();
+function create(faker: Faker): PersonModel {
+  const person = new PersonModel();
 
   const gender = faker.number.int({ min: 0, max: 2 });
   person.gender = gender;

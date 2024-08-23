@@ -10,7 +10,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Doctor } from './Doctor';
-import { Person } from './Person';
+import { PersonModel } from './Person';
 import { Specialty } from './Specialty';
 import { Workplace } from './Workplace';
 
@@ -34,9 +34,9 @@ export class Appointment extends BaseEntity {
   @JoinColumn({ name: 'doctor_cpf' })
   public doctor: Doctor;
 
-  @ManyToOne(() => Person, (person) => person.appointments)
+  @ManyToOne(() => PersonModel, (person) => person.appointments)
   @JoinColumn({ name: 'person_cpf' })
-  public person: Person;
+  public person: PersonModel;
 
   //NOTE: Maybe add inverse relation for managment purposes?
   @ManyToOne(() => Specialty)

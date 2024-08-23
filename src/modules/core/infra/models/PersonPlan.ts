@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Person } from './Person';
+import { PersonModel } from './Person';
 import { Plan } from './Plan';
 
 @Entity()
@@ -26,8 +26,8 @@ export class PersonPlan extends BaseEntity {
   @ManyToOne(() => Plan, (plan) => plan.planUsers)
   public plan: Plan;
 
-  @ManyToOne(() => Person, (person) => person.plans)
-  public person: Person;
+  @ManyToOne(() => PersonModel, (person) => person.plans)
+  public person: PersonModel;
 
   @CreateDateColumn()
   public createdAt: Date;

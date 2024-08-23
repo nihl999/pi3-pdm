@@ -12,7 +12,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Workplace } from './Workplace';
-import { Person } from './Person';
+import { PersonModel } from './Person';
 import { DoctorPlan } from './DoctorPlan';
 import { DoctorSpecialty } from './DoctorSpecialty';
 import { Appointment } from './Appointment';
@@ -22,9 +22,9 @@ export class Doctor extends BaseEntity {
   @PrimaryColumn({ type: 'varchar' })
   public personCpf: string;
 
-  @OneToOne(() => Person, {})
+  @OneToOne(() => PersonModel, {})
   @JoinColumn()
-  public person: Person;
+  public person: PersonModel;
 
   @Column({ nullable: false, unique: true })
   public crm: string;
